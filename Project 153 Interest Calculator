@@ -1,0 +1,39 @@
+from tkinter import *
+
+def calculate_interest():
+    calc_principal = float(enter_principal.get())
+    calc_rate = float(rate_entry.get())
+    calc_time = float(time_entry.get())
+    calc_interest = (calc_principal*calc_rate*calc_time)/100
+    interest.config(text=round(calc_interest,2))
+
+
+window =Tk()
+window.geometry("800x800")
+window.title("Window")
+window.config(bg="lightpink")
+
+heading = Label(window,text="Heading",bd=10,bg="lightpink",font=("Calibri",40))
+heading.place(x=300, y=10)
+
+principal = Label(window, text="Enter Principal: ", bg="lightpink",font=("Calibri",20))
+principal.place(x=50,y=150)
+enter_principal= Entry(window,text="",width=20)
+enter_principal.place(x=250,y=160)
+
+rate = Label(window,text="Enter Rate: ",bg="lightpink",font=("Calibri",20))
+rate.place(x=50, y=210)
+rate_entry=Entry(window,text="",width=20)
+rate_entry.place(x=250,y=220)
+
+time=Label(window,text="Enter Time: ",bg="lightpink",font=("Calibri",20))
+time.place(x= 50,y= 270)
+time_entry = Entry(window,text="",width=20)
+time_entry.place(x=250,y=280)
+
+calc_button=Button(window,text="Calculate Interest", font=("Calibri",15),command=calculate_interest)
+calc_button.place(x=50,y=350)
+interest = Label(window,text=" ",bg="lightpink",font=("Calibri",12))
+interest.place(x=50, y=400)
+
+window.mainloop()
